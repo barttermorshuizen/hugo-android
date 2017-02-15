@@ -3,11 +3,13 @@ package co.moreawesome.hugo.hugo;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.io.Serializable;
+
 /**
  * Created by bart on 13/02/2017.
  */
 
-public class Veterinarian {
+public class Veterinarian implements Serializable {
     private String mName;
     private String mPractice;
     private String mAddressStreet;

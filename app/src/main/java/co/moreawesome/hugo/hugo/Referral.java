@@ -3,11 +3,13 @@ package co.moreawesome.hugo.hugo;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.io.Serializable;
+
 /**
  * Created by bart on 13/02/2017.
  */
 
-public class Referral {
+public class Referral implements Serializable {
     private Veterinarian mVet;
     private String mReason;
     //private Patient mPatient;
