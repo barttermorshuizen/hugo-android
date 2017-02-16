@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // instantiate model based on preferences
-        referral = new Referral(this);
+        referral = new Referral(getSharedPreferences(PREFS_NAME, 0));
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -105,13 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // store the referral state in the preferences
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
 
-        referral.store(editor);
+        referral.store(getSharedPreferences(PREFS_NAME, 0));
 
-        // Commit the edits!
-        editor.commit();
     }
 
 
@@ -167,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void modelToView(){
         // copies the model in the view
-        mVet.setText(referral.getVet().getSummary());
+        mVet.setText(referral.getName() + " | " + referral.getVetPractice());
         mReferralReason.setText(referral.getReason());
         //TODO owner
         //TODO patient

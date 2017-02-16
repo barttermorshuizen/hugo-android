@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    tools:context="co.moreawesome.hugo.hugo.MainActivity"
+    tools:showIn="@layout/activity_main">
 
-    <android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context="co.moreawesome.hugo.hugo.VetActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,7 +28,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="120dp"/>
+        android:layout_height="28dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,5 +94,5 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="16dp" />
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
