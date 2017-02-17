@@ -6,8 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static final String PREFS_NAME = "HugoPreferences";
+    private static final String TAG = "MainActivity";
 
     private Referral referral; // single reference to the model of the app
 
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton mEmail;
     private RadioButton mTel;
 
+    private ActionBar ab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
         // instantiate model based on preferences
         referral = new Referral(getSharedPreferences(PREFS_NAME, 0));
 
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       setContentView(R.layout.activity_main);
+
+        ab = getSupportActionBar();
+        Log.v(TAG,ab.getTitle().toString());
+
 
         mFab = (FloatingActionButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
@@ -76,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         mPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Opening patient form ...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this,PetActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -85,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         mOwner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Opening owner form ...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent  = new Intent(MainActivity.this,OwnerActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -97,17 +104,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.v(TAG, "Restart");
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        referral = new Referral(getSharedPreferences(PREFS_NAME, 0));
+        modelToView();
+        Log.v(TAG, "Resume");
+
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.v(TAG, "Pause");
+        viewToModel();
+    }
+
+
+
+    @Override
     protected void onStop(){
         super.onStop();
+        Log.v(TAG, "Pause");
 
         // save the form in the referral object. The other forms should have saved their state upon closing at all times
         viewToModel();
-
-
-        // store the referral state in the preferences
-
-        referral.store(getSharedPreferences(PREFS_NAME, 0));
-
     }
 
 
@@ -143,30 +169,39 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_clear) {
+            clear();
             return true;
+        }
+
+        if (id == R.id.action_call) {
+            String number = getText(R.string.tel_number).toString();
+            Uri call = Uri.parse("tel:" + number);
+            Intent surf = new Intent(Intent.ACTION_DIAL, call);
+            startActivity(surf);
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+
     private void clear(){
-        // clears all form fields except the vet
-        mReferralReason.setText("");
-        // mPatient.setText("");
-        // mOwner.setText("");
-        mEmail.setChecked(true);
-        mTel.setChecked(false);
-        // clear the model, except the vet
-        viewToModel();
+        referral.clear();
+        referral.store(getSharedPreferences(PREFS_NAME, 0));
+        modelToView();
     }
 
     private void modelToView(){
         // copies the model in the view
-        mVet.setText(referral.getName() + " | " + referral.getVetPractice());
+        mVet.setText(referral.getVetPractice());
         mReferralReason.setText(referral.getReason());
-        //TODO owner
-        //TODO patient
+        if (referral.getPatientType().length()>0) {
+            mPatient.setText(referral.getPatientName() + " (" + referral.getPatientType() + ")");
+        }
+        else {
+            mPatient.setText(referral.getPatientName());
+        }
+        mOwner.setText(referral.getOwnerName());
         mEmail.setChecked(referral.getContactByEmail());
         mTel.setChecked(!referral.getContactByEmail());
     }
@@ -175,21 +210,31 @@ public class MainActivity extends AppCompatActivity {
         // only pushes the reason and contact preference to the model. It is assumed that the other activities sync to the model when they close
         referral.setReason(mReferralReason.getText().toString());
         referral.setContactByEmail(mEmail.isChecked());
+        referral.store(getSharedPreferences(PREFS_NAME, 0));
     }
 
     private void mail(){
+
         viewToModel();
-        Intent i = new Intent(Intent.ACTION_SENDTO);
-        i.setType("*/*");
-        i.setData(Uri.parse("mailto:"));
-        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"bart@moreawesome.co"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "verwijzing");
-        i.putExtra(Intent.EXTRA_TEXT   , referral.getReason());
-        if (i.resolveActivity(getPackageManager()) != null) {
-            startActivity(i);
+        // check before mail
+        String msg = referral.validateComplete();
+        if (msg.equals("Ok")) {
+
+            Intent i = new Intent(Intent.ACTION_SENDTO);
+            i.setType("*/*");
+            i.setData(Uri.parse("mailto:"));
+            i.putExtra(Intent.EXTRA_EMAIL, new String[]{"bart@moreawesome.co"});
+            i.putExtra(Intent.EXTRA_SUBJECT, "Verwijzing");
+            i.putExtra(Intent.EXTRA_TEXT, referral.toMessage());
+            if (i.resolveActivity(getPackageManager()) != null) {
+                startActivity(i);
+            } else {
+                Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            }
         }
         else {
-            Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            // msg contains an error
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         }
     }
 }

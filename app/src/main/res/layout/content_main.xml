@@ -14,7 +14,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="30dp" />
 
 
     <LinearLayout
@@ -42,7 +42,10 @@
                       android:inputType="none"
                       android:maxLines="1"
                       android:focusableInTouchMode="false"
-                      android:editable="false"/>
+                      android:editable="false"
+                      android:singleLine="true"
+                      android:textStyle="normal|italic"
+                      tools:backgroundTint="@android:color/background_dark"/>
 
         </LinearLayout>
 
@@ -71,12 +74,13 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
                 android:ems="10"
                 android:id="@+id/referral_reason"
                 android:maxLength="200"
                 android:textAlignment="viewStart"
-                android:inputType="textMultiLine|textLongMessage"/>
+                android:inputType="textCapSentences|textMultiLine"
+                android:singleLine="false"/>
 
         </LinearLayout>
 
@@ -109,7 +113,8 @@
                       android:layout_height="wrap_content"
                       android:hint="@string/tap_to_change"
                       android:maxLines="1"
-                      android:focusableInTouchMode="false"/>
+                      android:focusableInTouchMode="false"
+                      android:textStyle="normal|italic"/>
 
         </LinearLayout>
 
@@ -142,7 +147,8 @@
                       android:layout_height="wrap_content"
                       android:hint="@string/tap_to_change"
                       android:maxLines="1"
-                      android:focusableInTouchMode="false"/>
+                      android:focusableInTouchMode="false"
+                      android:textStyle="normal|italic"/>
 
         </LinearLayout>
 
@@ -207,7 +213,7 @@
         android:gravity="bottom">
 
         <Button
-            android:text="Clear"
+            android:text="@string/clear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/clear_button"
@@ -216,7 +222,7 @@
             android:elevation="0dp" />
 
         <Button
-            android:text="Verzenden ..."
+            android:text="@string/send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/send"
