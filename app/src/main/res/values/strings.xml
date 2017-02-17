@@ -11,6 +11,13 @@
     <string name="gender_v">V</string>
     <string name="gender_vg">VG</string>
     <string name="gender_o">O</string>
+    <string name="vet">Dierenarts</string>
+    <string name="reason">Reden verwijzing</string>
+    <string name="patient">Patient</string>
+    <string name="owner">Eigenaar</string>
+    <string name="contactpreference">Contact de eigenaar via</string>
+    <string name="email">E-mail</string>
+    <string name="tel">Telefonisch</string>
     <string-array name="vets">
         <item></item>
         <item>DierenDokters Amsterdam</item>

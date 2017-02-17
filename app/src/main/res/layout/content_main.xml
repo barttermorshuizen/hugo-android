@@ -29,7 +29,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Dierenarts"
+                android:text="@string/vet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -67,7 +67,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Reden verwijzing"
+                android:text="@string/reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -102,7 +102,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Patient"
+                android:text="@string/patient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -136,7 +136,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Eigenaar"
+                android:text="@string/owner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -170,7 +170,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Contact met de eigenaar via"
+                android:text="@string/contactpreference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -186,7 +186,7 @@
                         android:orientation="horizontal">
 
                 <RadioButton
-                    android:text="E-mail"
+                    android:text="@string/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/radio_email"
@@ -194,7 +194,7 @@
                     android:onClick="onRadioButtonClicked"/>
 
                 <RadioButton
-                    android:text="Telefonisch"
+                    android:text="@string/tel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/radio_tel"
