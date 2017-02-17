@@ -36,7 +36,7 @@
                 android:layout_weight="0.75">
 
                 <TextView
-                    android:text="Naam"
+                    android:text="@string/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -64,7 +64,7 @@
             android:layout_weight="0.75">
 
             <TextView
-                android:text="Diersoort"
+                android:text="@string/patienttype"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -135,7 +135,7 @@
                 android:layout_weight="0.75">
 
                 <TextView
-                    android:text="Geboortedatum"
+                    android:text="@string/dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />

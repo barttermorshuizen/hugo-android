@@ -18,6 +18,11 @@
     <string name="contactpreference">Contact de eigenaar via</string>
     <string name="email">E-mail</string>
     <string name="tel">Telefonisch</string>
+    <string name="name">Naam</string>
+    <string name="patienttype">Diersoort</string>
+    <string name="patientrace">Ras</string>
+    <string name="dob">Geboortedatum</string>
+
     <string-array name="vets">
         <item></item>
         <item>DierenDokters Amsterdam</item>
