@@ -11,7 +11,7 @@ public class PetActivity extends AppCompatActivity {
 
     private static final String TAG="VetActivity";
 
-    private Referral mReferral;
+    private Referral referral;
 
     private EditText mEditTextPetName;
     private EditText mEditTextPatientType; // type of patient (e.g. Dog, Cat)
@@ -34,7 +34,7 @@ public class PetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet);
 
         // the vet object is stored in preferences - instantiate
-        mReferral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
+        referral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
         mEditTextPetName = (EditText) findViewById(R.id.patientname);
         mEditTextPatientType = (EditText) findViewById(R.id.patienttype);
         mEditTextPatientRace = (EditText) findViewById(R.id.patientrace);
@@ -71,11 +71,11 @@ public class PetActivity extends AppCompatActivity {
 
     private void modelToView(){
         // copies the model in the view
-        mEditTextPetName.setText(mReferral.getPatientName());
-        mEditTextPatientType.setText(mReferral.getPatientType());
-        mEditTextPatientRace.setText(mReferral.getPatienRace());
-        mEditTextPatientDoB.setText(mReferral.getPatientDoB());
-        switch (mReferral.getPatientGender()) {
+        mEditTextPetName.setText(referral.getPatientName());
+        mEditTextPatientType.setText(referral.getPatientType());
+        mEditTextPatientRace.setText(referral.getPatienRace());
+        mEditTextPatientDoB.setText(referral.getPatientDoB());
+        switch (referral.getPatientGender()) {
             case "M":
                 mRadioButtonGenderM.setChecked(true);
                 break;
@@ -96,10 +96,10 @@ public class PetActivity extends AppCompatActivity {
 
     private void viewToModel() {
 
-        mReferral.setPatientName(mEditTextPetName.getText().toString());
-        mReferral.setPatientType(mEditTextPatientType.getText().toString());
-        mReferral.setPatienRace(mEditTextPatientRace.getText().toString());
-        mReferral.setPatientDoB(mEditTextPatientDoB.getText().toString());
+        referral.setPatientName(mEditTextPetName.getText().toString());
+        referral.setPatientType(mEditTextPatientType.getText().toString());
+        referral.setPatienRace(mEditTextPatientRace.getText().toString());
+        referral.setPatientDoB(mEditTextPatientDoB.getText().toString());
 
         String gender="";
         if (mRadioButtonGenderM.isChecked()) gender = "M";
@@ -107,8 +107,8 @@ public class PetActivity extends AppCompatActivity {
         else if (mRadioButtonGenderV.isChecked()) gender = "V";
         else if (mRadioButtonGenderVG.isChecked()) gender = "VG";
         else if (mRadioButtonGenderO.isChecked()) gender = "O";
-        mReferral.setPatientGender(gender);
+        referral.setPatientGender(gender);
 
-        mReferral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
+        referral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
     }
 }

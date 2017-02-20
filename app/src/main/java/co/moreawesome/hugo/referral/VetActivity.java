@@ -13,7 +13,7 @@ public class VetActivity extends AppCompatActivity {
 
     private static final String TAG="VetActivity";
 
-    private Referral mReferral;
+    private Referral referral;
     private EditText mEditTextName;
     private Spinner mSpinnerVets;
 
@@ -31,7 +31,7 @@ public class VetActivity extends AppCompatActivity {
       //  getSupportActionBar().setHomeButtonEnabled(true);
 
         // the vet object is stored in preferences - instantiate
-        mReferral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
+        referral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
 
         mEditTextName = (EditText) findViewById(R.id.name);
 
@@ -46,7 +46,7 @@ public class VetActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mReferral.setVetPractice(parent.getItemAtPosition(position).toString());
+                referral.setVetPractice(parent.getItemAtPosition(position).toString());
             }
 
             @Override
@@ -76,14 +76,13 @@ public class VetActivity extends AppCompatActivity {
         // put the model back in the preferences
         // save the form in the referral object. The other forms should have saved their state upon closing at all times
         viewToModel();
-        mReferral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
     }
 
     private void modelToView(){
         // copies the model in the view
-        mEditTextName.setText(mReferral.getName());
+        mEditTextName.setText(referral.getName());
 
-        int pos = getSpinnerIndex(mSpinnerVets,mReferral.getVetPractice());
+        int pos = getSpinnerIndex(mSpinnerVets, referral.getVetPractice());
         if (pos != -1){
             // we have a valid position
              mSpinnerVets.setSelection(pos);
@@ -92,8 +91,9 @@ public class VetActivity extends AppCompatActivity {
 
     private void viewToModel() {
         // only pushes the vet and name preferences to the model.
-        mReferral.setName(mEditTextName.getText().toString());
+        referral.setName(mEditTextName.getText().toString());
         // it is assumed that with every selection, the model is updated.
+        referral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
     }
 
     private int getSpinnerIndex(Spinner spinner, String myString) {
