@@ -1,4 +1,4 @@
-package co.moreawesome.hugo.hugo;
+package co.moreawesome.hugo.referral;
 
 import android.content.SharedPreferences;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="co.moreawesome.hugo.hugo">
+          package="co.moreawesome.hugo.referral">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="co.moreawesome.hugo.referral.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,29 +17,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="co.moreawesome.hugo.referral.MainActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name=".VetActivity"
+            android:name="co.moreawesome.hugo.referral.VetActivity"
             android:label="Dierenarts">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value="co.moreawesome.hugo.referral.MainActivity"/>
         </activity>
         <activity
-            android:name=".PetActivity"
+            android:name="co.moreawesome.hugo.referral.PetActivity"
             android:label="Patient">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value="co.moreawesome.hugo.referral.MainActivity"/>
         </activity>
         <activity
-            android:name=".OwnerActivity"
+            android:name="co.moreawesome.hugo.referral.OwnerActivity"
             android:label="Eigenaar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value="co.moreawesome.hugo.referral.MainActivity"/>
         </activity>
     </application>
 

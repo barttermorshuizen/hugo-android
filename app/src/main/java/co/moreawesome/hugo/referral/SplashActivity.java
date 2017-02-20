@@ -1,4 +1,4 @@
-package co.moreawesome.hugo.hugo;
+package co.moreawesome.hugo.referral;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

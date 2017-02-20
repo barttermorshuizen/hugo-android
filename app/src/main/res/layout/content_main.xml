@@ -9,7 +9,7 @@
     android:layout_weight="1"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    tools:context="co.moreawesome.hugo.hugo.MainActivity"
+    tools:context="co.moreawesome.hugo.referral.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <Space
