@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("co.moreawesome.hugo.hugo", appContext.getPackageName());
+        assertEquals("co.moreawesome.hugo.referral", appContext.getPackageName());
     }
 }
