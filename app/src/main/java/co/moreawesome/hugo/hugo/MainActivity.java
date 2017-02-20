@@ -224,6 +224,9 @@ public class MainActivity extends AppCompatActivity {
             i.setType("*/*");
             i.setData(Uri.parse("mailto:"));
             i.putExtra(Intent.EXTRA_EMAIL, new String[]{"bart@moreawesome.co"});
+            if (!referral.getOwnerEmail().isEmpty()){
+                i.putExtra(Intent.EXTRA_CC, new String[] {referral.getOwnerEmail()});
+            }
             i.putExtra(Intent.EXTRA_SUBJECT, "Verwijzing");
             i.putExtra(Intent.EXTRA_TEXT, referral.toMessage());
             if (i.resolveActivity(getPackageManager()) != null) {
