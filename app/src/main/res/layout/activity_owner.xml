@@ -35,11 +35,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
+                <co.moreawesome.hugo.referral.HugoTextView
                     android:text="Naam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:fontName="Domus-Light.otf"/>
 
                 <EditText android:id="@+id/ownername"
                           android:layout_weight="1"
@@ -64,12 +65,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
+                <co.moreawesome.hugo.referral.HugoTextView
                     android:text="E-mail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    app:fontName="Domus-Light.otf"/>
 
 
                 <EditText android:id="@+id/owneremail"
@@ -94,11 +96,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
+                <co.moreawesome.hugo.referral.HugoTextView
                     android:text="Telefoon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    app:fontName="Domus-Light.otf"/>
 
                 <EditText android:id="@+id/ownertel"
                           android:layout_weight="1"

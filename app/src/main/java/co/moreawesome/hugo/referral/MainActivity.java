@@ -98,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         mTel = (RadioButton) findViewById(R.id.radio_tel);
 
         modelToView();
+
+        // set correct fonts
+
     }
 
     @Override

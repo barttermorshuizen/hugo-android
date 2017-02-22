@@ -28,11 +28,12 @@
             android:layout_height="match_parent"
             android:layout_weight="0.75">
 
-            <TextView
+            <co.moreawesome.hugo.referral.HugoTextView
                 android:text="@string/vet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontName="Domus-Light.otf"/>
 
             <EditText android:id="@+id/vet"
                       android:layout_weight="1"
@@ -66,11 +67,12 @@
             android:layout_height="match_parent"
             android:layout_weight="0.75">
 
-            <TextView
+            <co.moreawesome.hugo.referral.HugoTextView
                 android:text="@string/reason"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontName="Domus-Light.otf"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -101,11 +103,12 @@
             android:layout_height="match_parent"
             android:layout_weight="0.75">
 
-            <TextView
+            <co.moreawesome.hugo.referral.HugoTextView
                 android:text="@string/patient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontName="Domus-Light.otf"/>
 
             <EditText android:id="@+id/patient"
                       android:layout_weight="1"
@@ -135,11 +138,12 @@
             android:layout_height="match_parent"
             android:layout_weight="0.75">
 
-            <TextView
+            <co.moreawesome.hugo.referral.HugoTextView
                 android:text="@string/owner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontName="Domus-Light.otf"/>
 
             <EditText android:id="@+id/owner"
                       android:layout_weight="1"
@@ -169,11 +173,12 @@
             android:layout_height="match_parent"
             android:layout_weight="0.75">
 
-            <TextView
+            <co.moreawesome.hugo.referral.HugoTextView
                 android:text="@string/contactpreference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontName="Domus-Light.otf"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -191,7 +196,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/radio_email"
                     android:layout_weight="1"
-                    android:onClick="onRadioButtonClicked"/>
+                    android:onClick="onRadioButtonClicked"
+                    android:fontFamily="sans-serif"/>
 
                 <RadioButton
                     android:text="@string/tel"
