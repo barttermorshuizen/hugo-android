@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
             if (i.resolveActivity(getPackageManager()) != null) {
                 startActivity(i);
             } else {
-                Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "E-mail kan niet worden verstuurd", Toast.LENGTH_SHORT).show();
             }
         }
         else {
