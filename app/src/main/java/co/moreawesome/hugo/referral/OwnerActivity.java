@@ -12,8 +12,9 @@ public class OwnerActivity extends AppCompatActivity {
     private Referral referral;
 
     private EditText mEditTextOwnerName;
-    private EditText mEditTextOwnerTel;
     private EditText mEditTextOwnerEmail;
+    private EditText mEditTextOwnerTel;
+
 
 
 
@@ -28,8 +29,8 @@ public class OwnerActivity extends AppCompatActivity {
         // the vet object is stored in preferences - instantiate
         referral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
         mEditTextOwnerName = (EditText) findViewById(R.id.ownername);
-        mEditTextOwnerTel = (EditText) findViewById(R.id.ownertel);
         mEditTextOwnerEmail = (EditText) findViewById(R.id.owneremail);
+        mEditTextOwnerTel = (EditText) findViewById(R.id.ownertel);
 
         modelToView();
     }
@@ -50,15 +51,15 @@ public class OwnerActivity extends AppCompatActivity {
     private void modelToView() {
         // copies the model in the view
         mEditTextOwnerName.setText(referral.getOwnerName());
-        mEditTextOwnerTel.setText(referral.getOwnerTel());
         mEditTextOwnerEmail.setText(referral.getOwnerEmail());
+        mEditTextOwnerTel.setText(referral.getOwnerTel());
     }
 
     private void viewToModel() {
 
         referral.setOwnerName(mEditTextOwnerName.getText().toString());
-        referral.setOwnerTel(mEditTextOwnerTel.getText().toString());
         referral.setOwnerEmail(mEditTextOwnerEmail.getText().toString());
+        referral.setOwnerTel(mEditTextOwnerTel.getText().toString());
 
         referral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
     }
