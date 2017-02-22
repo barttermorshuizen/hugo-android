@@ -2,6 +2,9 @@ package co.moreawesome.hugo.referral;
 
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by bart on 13/02/2017.
@@ -192,44 +195,63 @@ public class Referral {
     }
 
     String toMessage(){
-        /*
-            Beste Hugo,
-            Hierbij verwijs ik door
-            <naam patient>, een <type dier - ras> van geslacht <gender>
 
-            Het gaat om het volgende: <reason>
+        List<String> lines = new ArrayList<>();
 
-            Kun je contact opnemen met de eigenaar - naam eigenaar - via email/tel.
-            Email: <owner email>.
-            Telefoonnummer: <owner tel>.
-
-            Vriendelijke groet,
-
-            <naam>
-            */
-        String[] lines = new String[13];
-
-        lines[0] = "Beste Hugo, \n";
-        lines[1] = "Hierbij verwijs ik door:";
-        lines[2] = mPatientName + ", een " + mPatientType + "  (" + mPatienRace + ") van geslacht: " + mPatientGender;
-        lines[3] = "";
-        lines[4] = "Het gaat om het volgende: " + mReason;
-        lines[5] = "";
-        lines[6] = "Kun je contact opnemen met de eigenaar - " + mOwnerName + " - via ";
-        if (mContactByEmail) lines[6] += "email?";
-        else lines[6] += "de telefoon?";
-        lines[7] = "Email: " + mOwnerEmail;
-        lines[8] = "Tel:" + mOwnerTel;
-        lines[9] = "";
-        lines[10] = "Vriendelijke groet,";
-        lines[11] = "";
-        lines[12] = mName;
-
-        String result = lines[0] + "\n"; // initialize with the first line
-
-        for (int i = 1; i<lines.length; i++){
-            result += lines[i] + "\n";
+        lines.add("Beste Hugo, \n");
+        lines.add("Hierbij verwijs ik door:");
+        if (!mPatientName.isEmpty()){
+            lines.add("  - patient: " + mPatientName);
         }
+        if (!mPatientType.isEmpty()){
+            lines.add("  - soort: " + mPatientType);
+        }
+        if (!mPatienRace.isEmpty()){
+            lines.add("  - ras: " + mPatienRace);
+        }
+        if (!mPatientGender.isEmpty()){
+            lines.add("  - geslacht: " + mPatientGender);
+        }
+
+        lines.add("");
+        lines.add("Het gaat om het volgende: " + mReason);
+        lines.add("");
+
+        if (mContactByEmail){
+            lines.add("Kun je contact opnemen met de eigenaar via email?");
+        }
+        else {
+            lines.add("Kun je contact opnemen met de eigenaar via de telefoon?");
+        }
+
+        if (!mOwnerName.isEmpty()){
+            lines.add("  - naam: " + mOwnerName);
+        }
+
+        if (!mOwnerEmail.isEmpty()){
+            lines.add("  - email: " + mOwnerEmail);
+        }
+
+        if (!mOwnerTel.isEmpty()){
+            lines.add("  - tel: " + mOwnerTel);
+        }
+
+        lines.add("");
+        lines.add("Vriendelijke groet,");
+        lines.add("");
+        if (!mName.isEmpty()){
+            lines.add(mName);
+        }
+        if (!mVetPractice.isEmpty()){
+            lines.add(mVetPractice);
+        }
+
+        String result = "";
+
+        for (String item : lines){
+            result += item + "\n";
+        }
+
         return result;
     }
 }
