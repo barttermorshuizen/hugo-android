@@ -32,12 +32,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <co.moreawesome.hugo.referral.HugoTextView
+                <TextView
                     android:text="Dierenarts"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:fontName="Domus-Light.otf"/>
+                    />
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -66,12 +66,12 @@
                     android:layout_height="16dp"
                     android:layout_weight="1"/>
 
-                <co.moreawesome.hugo.referral.HugoTextView
+                <TextView
                     android:text="Naam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:fontName="Domus-Light.otf"/>
+                    />
 
                 <EditText android:id="@+id/name"
                           android:layout_weight="1"
