@@ -7,119 +7,124 @@
     android:layout_height="match_parent"
     tools:context="co.moreawesome.hugo.referral.VetActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        tools:context="co.moreawesome.hugo.referral.VetActivity"
-        tools:showIn="@layout/activity_vet">
-
-        <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            tools:context="co.moreawesome.hugo.referral.VetActivity"
+            tools:showIn="@layout/activity_vet">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.75">
-
-                <TextView
-                    android:text="@string/vet_practice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    />
-
-                <EditText android:id="@+id/vetpractice"
-                          android:layout_weight="1"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:maxLines="1"
-                          android:inputType="textCapWords"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <Space
+            <Space
             android:layout_width="match_parent"
             android:layout_height="30dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <TextView
+                        android:text="@string/vet_practice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+                    <EditText android:id="@+id/vetpractice"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.75">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:text="@string/place"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
 
-                <EditText android:id="@+id/vetplace"
-                          android:layout_weight="1"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:maxLines="1"
-                          android:inputType="textCapWords"/>
+                    <TextView
+                        android:text="@string/place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+                    <EditText android:id="@+id/vetplace"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:text="Naam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        />
+
+                    <EditText android:id="@+id/name"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.75">
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"
-                    android:layout_weight="1"/>
-
-                <TextView
-                    android:text="Naam"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    />
-
-                <EditText android:id="@+id/name"
-                          android:layout_weight="1"
-                          android:layout_width="match_parent"
-                          android:layout_height="wrap_content"
-                          android:maxLines="1"
-                          android:inputType="textCapWords"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 </android.support.design.widget.CoordinatorLayout>
