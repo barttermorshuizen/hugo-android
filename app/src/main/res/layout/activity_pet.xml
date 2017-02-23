@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     tools:context="co.moreawesome.hugo.referral.PetActivity">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
         <LinearLayout
@@ -23,7 +23,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,22 +36,30 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="@string/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+
 
                     <EditText android:id="@+id/patientname"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:maxLines="1"
-                              android:inputType="textCapSentences"/>
+                              android:inputType="textCapSentences"
+                              android:hint="Naam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_patientname"
+                        android:text="Vul de naam van de patient in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
 
             <LinearLayout
             android:layout_width="match_parent"
@@ -64,11 +72,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
-                    android:text="@string/patienttype"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+
 
                 <EditText android:id="@+id/patienttype"
                           android:layout_weight="1"
@@ -76,11 +80,24 @@
                           android:layout_height="wrap_content"
                           android:maxLines="1"
                           android:inputType="textCapSentences"
-                          android:hint="Hond"/>
+                          android:hint="Diersoort"/>
+
+                <TextView
+                    android:id="@+id/lbl_patienttype"
+                    android:text=" Is het een hond, kat,...?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorAccent"/>
+
 
             </LinearLayout>
 
         </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,6 +114,10 @@
 
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,11 +129,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="Ras"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
 
                     <EditText android:id="@+id/patientrace"
                               android:layout_weight="1"
@@ -120,11 +136,22 @@
                               android:layout_height="wrap_content"
                               android:inputType="textCapSentences"
                               android:maxLines="1"
-                              android:hint="Labrador"/>
+                              android:hint="Ras"/>
+
+                    <TextView
+                        android:id="@+id/lbl_patientrace"
+                        android:text="Vul het ras in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,22 +164,29 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="@string/dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
 
                     <EditText android:id="@+id/patientdob"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:inputType="text"
-                              android:maxLines="1"/>
+                              android:maxLines="1"
+                              android:hint="Geboortedatum"/>
+
+                    <TextView
+                        android:id="@+id/lbl_patientdob"
+                        android:text="Vul de geboortedatum in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -169,7 +203,8 @@
                         android:text="@string/gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        android:textSize="18sp"/>
 
                     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                                 android:layout_width="fill_parent"

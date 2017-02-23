@@ -26,7 +26,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,23 +39,30 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="Naam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-
                     <EditText android:id="@+id/ownername"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:inputType="textCapWords"
                               android:maxLines="1"
-                        />
+                              android:hint="Naam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_ownername"
+                        android:text="Vul de naam van de eigenaar in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorAccent"/>
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,12 +76,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="E-mail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="14sp"/>
+
 
 
                     <EditText android:id="@+id/owneremail"
@@ -82,12 +84,27 @@
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:inputType="textEmailAddress"
-                              android:maxLines="1"/>
+                              android:maxLines="1"
+                              android:hint="E-mail"/>
+
+                    <TextView
+                        android:id="@+id/lbl_owneremail"
+                        android:text="Vul het e-mail adres in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorAccent"/>
 
                 </LinearLayout>
 
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,18 +116,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <TextView
-                        android:text="Telefoon"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-
                     <EditText android:id="@+id/ownertel"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:maxLines="1"
-                              android:inputType="phone"/>
+                              android:inputType="phone"
+                              android:hint="Telefoonnummer"/>
+
+                    <TextView
+                        android:id="@+id/lbl_ownertel"
+                        android:text="Vul het telefoonnummer in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorAccent"/>
 
                 </LinearLayout>
 

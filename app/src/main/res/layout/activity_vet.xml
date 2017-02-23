@@ -23,7 +23,7 @@
 
             <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp"/>
+            android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,20 +35,22 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
-
-                    <TextView
-                        android:text="@string/vet_practice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        />
 
                     <EditText android:id="@+id/vetpractice"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:maxLines="1"
-                              android:inputType="textCapWords"/>
+                              android:inputType="textCapWords"
+                              android:hint="Praktijknaam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_vetpractice"
+                        android:text="@string/vet_practice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorAccent"/>
 
                 </LinearLayout>
 
@@ -56,7 +58,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,20 +70,22 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
-
-                    <TextView
-                        android:text="@string/place"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        />
 
                     <EditText android:id="@+id/vetplace"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:maxLines="1"
-                              android:inputType="textCapWords"/>
+                              android:inputType="textCapWords"
+                              android:hint="Plaats"/>
+
+                    <TextView
+                        android:id="@+id/lbl_vetplace"
+                        android:text="@string/place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/light_gray"/>
 
                 </LinearLayout>
 
@@ -89,7 +93,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="16dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,24 +106,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.75">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="16dp"
-                        android:layout_weight="1"/>
-
-                    <TextView
-                        android:text="Naam"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        />
-
                     <EditText android:id="@+id/name"
                               android:layout_weight="1"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
                               android:maxLines="1"
-                              android:inputType="textCapWords"/>
+                              android:inputType="textCapWords"
+                              android:hint="Naam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_name"
+                        android:text="Vul je naam in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/light_gray"/>
 
                 </LinearLayout>
 

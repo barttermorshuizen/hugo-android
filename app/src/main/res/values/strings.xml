@@ -23,8 +23,8 @@
     <string name="patientrace">Ras</string>
     <string name="dob">Geboortedatum</string>
     <string name="logo_hugo">logo hugo</string>
-    <string name="vet_practice">Dierenarts</string>
-    <string name="place">Plaats</string>
+    <string name="vet_practice">Vul de naam van de praktijk in</string>
+    <string name="place">Vul de plaats van de praktijk in</string>
 
     <string-array name="vets">
         <item></item>

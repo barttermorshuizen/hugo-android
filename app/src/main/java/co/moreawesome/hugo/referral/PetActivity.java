@@ -2,12 +2,15 @@ package co.moreawesome.hugo.referral;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
-public class PetActivity extends AppCompatActivity {
+public class PetActivity extends AppCompatActivity implements TextWatcher {
 
     private static final String TAG="VetActivity";
 
@@ -22,6 +25,7 @@ public class PetActivity extends AppCompatActivity {
     private RadioButton mRadioButtonGenderV;
     private RadioButton mRadioButtonGenderVG;
     private RadioButton mRadioButtonGenderO;
+    private TextView lblPatientType;
 
 
 
@@ -44,6 +48,9 @@ public class PetActivity extends AppCompatActivity {
         mRadioButtonGenderV = (RadioButton) findViewById(R.id.radio_v);
         mRadioButtonGenderVG = (RadioButton) findViewById(R.id.radio_vg);
         mRadioButtonGenderO = (RadioButton) findViewById(R.id.radio_o);
+        lblPatientType = (TextView) findViewById(R.id.lbl_patienttype);
+
+        mEditTextPatientType.addTextChangedListener(this);
 
         modelToView();
 
@@ -65,9 +72,32 @@ public class PetActivity extends AppCompatActivity {
         Log.v(TAG, "Stop");
     }
 
+    @Override
+    public void afterTextChanged(Editable s) {
+        colorLabelsWhenEmpty();
+    }
+
+    @Override
+    final public void beforeTextChanged(CharSequence s, int start, int count, int after) { /* Don't care */ }
+
+    @Override
+    final public void onTextChanged(CharSequence s, int start, int before, int count) { /* Don't care */ }
+
     public void onRadioButtonClicked(View view) {
     }
 
+    private void colorLabelWhenEmpty(TextView label, EditText editText){
+        if (editText.getText().toString().isEmpty()){
+            label.setTextColor(getResources().getColor(R.color.colorAccent));
+        }
+        else {
+            label.setTextColor(getResources().getColor(R.color.light_gray));
+        }
+    }
+
+    private void colorLabelsWhenEmpty() {
+        colorLabelWhenEmpty(lblPatientType, mEditTextPatientType);
+    }
 
     private void modelToView(){
         // copies the model in the view
@@ -92,6 +122,7 @@ public class PetActivity extends AppCompatActivity {
                 mRadioButtonGenderO.setChecked(true);
                 break;
         }
+        colorLabelsWhenEmpty();
     }
 
     private void viewToModel() {

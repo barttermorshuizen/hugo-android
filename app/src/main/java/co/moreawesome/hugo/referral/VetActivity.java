@@ -2,20 +2,25 @@ package co.moreawesome.hugo.referral;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-public class VetActivity extends AppCompatActivity {
+public class VetActivity extends AppCompatActivity implements TextWatcher  {
 
     private static final String TAG="VetActivity";
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
@@ -24,6 +29,11 @@ public class VetActivity extends AppCompatActivity {
     private EditText mEditTextName;
     private EditText mEditTextVetPractice;
     private EditText mEditTextVetPlace;
+    private TextView mlblName;
+    private TextView mlblVetPractice;
+    private TextView mlblVetPlace;
+
+
 
 
 
@@ -40,7 +50,15 @@ public class VetActivity extends AppCompatActivity {
         mEditTextName = (EditText) findViewById(R.id.name);
         mEditTextVetPractice = (EditText) findViewById(R.id.vetpractice);
         mEditTextVetPlace = (EditText) findViewById(R.id.vetplace);
+        mlblName = (TextView) findViewById(R.id.lbl_name);
+        mlblVetPractice = (TextView) findViewById(R.id.lbl_vetpractice);
+        mlblVetPlace = (TextView) findViewById(R.id.lbl_vetplace);
 
+        mEditTextName.addTextChangedListener(this);
+        mEditTextVetPractice.addTextChangedListener(this);
+        mEditTextVetPlace.addTextChangedListener(this);
+
+        modelToView();
 
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_CONTACTS)
@@ -67,8 +85,6 @@ public class VetActivity extends AppCompatActivity {
                 // result of the request.
             }
         }
-
-        modelToView();
 
     }
 
@@ -128,11 +144,36 @@ public class VetActivity extends AppCompatActivity {
         }
     }
 
+    private void colorLabelWhenEmpty(TextView label, EditText editText){
+        if (editText.getText().toString().isEmpty()){
+            label.setTextColor(getResources().getColor(R.color.colorAccent));
+        }
+        else {
+            label.setTextColor(getResources().getColor(R.color.light_gray));
+        }
+    }
+
+    private void colorLabelsWhenEmpty(){
+        colorLabelWhenEmpty(mlblVetPractice,mEditTextVetPractice);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        colorLabelsWhenEmpty();
+    }
+
+    @Override
+    final public void beforeTextChanged(CharSequence s, int start, int count, int after) { /* Don't care */ }
+
+    @Override
+    final public void onTextChanged(CharSequence s, int start, int before, int count) { /* Don't care */ }
+
     private void modelToView(){
         // copies the model in the view
         mEditTextName.setText(referral.getName());
         mEditTextVetPractice.setText(referral.getVetPractice());
         mEditTextVetPlace.setText(referral.getVetPlace());
+        colorLabelsWhenEmpty();
     }
 
     private void viewToModel() {

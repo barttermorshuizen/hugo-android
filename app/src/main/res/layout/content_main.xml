@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
     <LinearLayout
@@ -16,7 +17,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="16dp" />
 
 
         <LinearLayout
@@ -30,17 +31,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
-                    android:text="@string/vet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
                 <EditText android:id="@+id/vet"
                           android:layout_weight="1"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:hint="@string/tap_to_change"
+                          android:hint="Dierenarts"
                           android:inputType="none"
                           android:maxLines="1"
                           android:focusableInTouchMode="false"
@@ -48,6 +43,14 @@
                           android:singleLine="true"
                           android:textStyle="normal|italic"
                           tools:backgroundTint="@android:color/background_dark"/>
+
+                <TextView
+                    android:id="@+id/lbl_vet"
+                    android:text="Tap om te veranderen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
 
             </LinearLayout>
 
@@ -67,12 +70,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
-
-                <TextView
-                    android:text="@string/reason"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -82,7 +79,16 @@
                     android:maxLength="200"
                     android:textAlignment="viewStart"
                     android:inputType="textCapSentences|textMultiLine"
-                    android:singleLine="false"/>
+                    android:singleLine="false"
+                    android:hint="Verwijsreden"/>
+
+                <TextView
+                    android:id="@+id/lbl_referral_reason"
+                    android:text="Vul de reden voor de verwijzing in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorAccent"/>
 
             </LinearLayout>
 
@@ -102,21 +108,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
-
-                <TextView
-                    android:text="@string/patient"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
 
                 <EditText android:id="@+id/patient"
                           android:layout_weight="1"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:hint="@string/tap_to_change"
+                          android:hint="Patient"
                           android:maxLines="1"
                           android:focusableInTouchMode="false"
                           android:textStyle="normal|italic"/>
+
+                <TextView
+                    android:id="@+id/lbl_patient"
+                    android:text="Tap om te veranderen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
 
             </LinearLayout>
 
@@ -137,20 +145,20 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.75">
 
-                <TextView
-                    android:text="@string/owner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
                 <EditText android:id="@+id/owner"
                           android:layout_weight="1"
                           android:layout_width="match_parent"
                           android:layout_height="wrap_content"
-                          android:hint="@string/tap_to_change"
+                          android:hint="Eigenaar"
                           android:maxLines="1"
                           android:focusableInTouchMode="false"
                           android:textStyle="normal|italic"/>
+                <TextView
+                    android:id="@+id/lbl_owner"
+                    android:text="Tap om te veranderen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -175,7 +183,8 @@
                     android:text="@string/contactpreference"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textSize="18sp"/>
 
                 <Space
                     android:layout_width="match_parent"
@@ -212,8 +221,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            android:layout_height="match_parent">
 
             <Button
                 android:text="@string/clear"

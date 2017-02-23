@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -13,9 +15,10 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextWatcher {
 
     public static final String PREFS_NAME = "HugoPreferences";
     private static final String TAG = "MainActivity";
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText mOwner;
     private RadioButton mEmail;
     private RadioButton mTel;
+    private TextView lblReferralReason;
+    private TextView lblVet;
+    private TextView lblPatient;
+    private TextView lblOwner;
 
     private ActionBar ab;
 
@@ -72,9 +79,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        lblVet = (TextView) findViewById(R.id.lbl_vet);
+        mVet.addTextChangedListener(this);
 
         mReferralReason = (EditText) findViewById(R.id.referral_reason);
+        lblReferralReason = (TextView) findViewById(R.id.lbl_referral_reason);
+        mReferralReason.addTextChangedListener(this);
 
         mPatient = (EditText) findViewById(R.id.patient);
         mPatient.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        lblPatient = (TextView) findViewById(R.id.lbl_patient);
+        mPatient.addTextChangedListener(this);
+
 
         mOwner = (EditText) findViewById(R.id.owner);
         mOwner.setOnClickListener(new View.OnClickListener() {
@@ -93,9 +106,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        lblOwner = (TextView) findViewById(R.id.lbl_owner);
+        mOwner.addTextChangedListener(this);
+
 
         mEmail = (RadioButton) findViewById(R.id.radio_email);
         mTel = (RadioButton) findViewById(R.id.radio_tel);
+
 
         modelToView();
 
@@ -184,11 +201,58 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void afterTextChanged(Editable s) {
+        colorLabelsWhenEmpty();
+    }
 
+    @Override
+    final public void beforeTextChanged(CharSequence s, int start, int count, int after) { /* Don't care */ }
+
+    @Override
+    final public void onTextChanged(CharSequence s, int start, int before, int count) { /* Don't care */ }
     private void clear(){
         referral.clear();
         referral.store(getSharedPreferences(PREFS_NAME, 0));
         modelToView();
+    }
+
+    private void colorLabelWhenEmpty(TextView label, EditText editText){
+        String v = editText.getText().toString();
+        Log.v(TAG,v);
+        v = v.trim().replaceAll("\n ", "");
+        if (v.isEmpty()){
+            label.setTextColor(getResources().getColor(R.color.colorAccent));
+        }
+        else {
+            label.setTextColor(getResources().getColor(R.color.light_gray));
+        }
+    }
+
+    private void colorLabelsWhenEmpty(){
+        // check vet
+        colorLabelWhenEmpty(lblVet,mVet);
+
+        colorLabelWhenEmpty(lblReferralReason,mReferralReason);
+
+        // check owner
+        //  owner has either mail or tel number
+        if (referral.getOwnerEmail().isEmpty() && referral.getOwnerTel().isEmpty()){
+            lblOwner.setTextColor(getResources().getColor(R.color.colorAccent));
+        }
+        else {
+            lblOwner.setTextColor(getResources().getColor(R.color.light_gray));
+        }
+
+        // check patient
+        // patient data
+        if (referral.getPatientType().isEmpty()){
+            lblPatient.setTextColor(getResources().getColor(R.color.colorAccent));
+        }
+        else {
+            lblPatient.setTextColor(getResources().getColor(R.color.light_gray));
+        }
+
     }
 
     private void modelToView(){
@@ -204,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
         mOwner.setText(referral.getOwnerName());
         mEmail.setChecked(referral.getContactByEmail());
         mTel.setChecked(!referral.getContactByEmail());
+        colorLabelsWhenEmpty();
     }
 
     private void viewToModel(){
