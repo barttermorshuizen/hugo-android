@@ -33,22 +33,59 @@
                 android:layout_weight="0.75">
 
                 <TextView
-                    android:text="Dierenarts"
+                    android:text="@string/vet_practice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     />
 
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinner"
-                    android:layout_weight="1"
-                    />
+                <EditText android:id="@+id/vetpractice"
+                          android:layout_weight="1"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:maxLines="1"
+                          android:inputType="textCapWords"/>
 
             </LinearLayout>
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.75">
+
+                <TextView
+                    android:text="@string/place"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <EditText android:id="@+id/vetplace"
+                          android:layout_weight="1"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:maxLines="1"
+                          android:inputType="textCapWords"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

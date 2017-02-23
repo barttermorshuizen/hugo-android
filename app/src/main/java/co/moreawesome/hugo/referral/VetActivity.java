@@ -15,7 +15,9 @@ public class VetActivity extends AppCompatActivity {
 
     private Referral referral;
     private EditText mEditTextName;
-    private Spinner mSpinnerVets;
+    private EditText mEditTextVetPractice;
+    private EditText mEditTextVetPlace;
+
 
 
     @Override
@@ -25,37 +27,12 @@ public class VetActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_vet);
 
-      //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-      //  getSupportActionBar().setHomeButtonEnabled(true);
-
         // the vet object is stored in preferences - instantiate
         referral = new Referral(getSharedPreferences(MainActivity.PREFS_NAME, 0));
 
         mEditTextName = (EditText) findViewById(R.id.name);
-
-        mSpinnerVets = (Spinner) findViewById(R.id.spinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.vets, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        mSpinnerVets.setAdapter(adapter);
-        mSpinnerVets.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                referral.setVetPractice(parent.getItemAtPosition(position).toString());
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-            }
-
-        });
-
+        mEditTextVetPractice = (EditText) findViewById(R.id.vetpractice);
+        mEditTextVetPlace = (EditText) findViewById(R.id.vetplace);
 
         modelToView();
 
@@ -81,28 +58,15 @@ public class VetActivity extends AppCompatActivity {
     private void modelToView(){
         // copies the model in the view
         mEditTextName.setText(referral.getName());
-
-        int pos = getSpinnerIndex(mSpinnerVets, referral.getVetPractice());
-        if (pos != -1){
-            // we have a valid position
-             mSpinnerVets.setSelection(pos);
-        }
+        mEditTextVetPractice.setText(referral.getVetPractice());
+        mEditTextVetPlace.setText(referral.getVetPlace());
     }
 
     private void viewToModel() {
-        // only pushes the vet and name preferences to the model.
+        //  stores the vetpractice, vetplace and name preferences to the model.
         referral.setName(mEditTextName.getText().toString());
-        // it is assumed that with every selection, the model is updated.
+        referral.setVetPractice(mEditTextVetPractice.getText().toString());
+        referral.setVetPlace(mEditTextVetPlace.getText().toString());
         referral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
-    }
-
-    private int getSpinnerIndex(Spinner spinner, String myString) {
-        for (int i=0;i<spinner.getCount();i++){
-            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
-                return i;
-            }
-        }
-        // Check for this when you set the position.
-        return -1;
     }
 }

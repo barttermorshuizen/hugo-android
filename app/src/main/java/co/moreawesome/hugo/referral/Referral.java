@@ -14,6 +14,7 @@ public class Referral {
 
     private String mName; // name of the referrer
     private String mVetPractice; // name of the practice
+    private String mVetPlace; // location of the practice
     private String mPatientName; // name of the patient
     private String mPatientType; // type of patient (e.g. Dog, Cat)
     private String mPatienRace; // race of the patient (e.g. Irish Setter)
@@ -39,6 +40,14 @@ public class Referral {
 
     public void setVetPractice(String vetPractice) {
         mVetPractice = vetPractice;
+    }
+
+    public String getVetPlace() {
+        return mVetPlace;
+    }
+
+    public void setVetPlace(String vetPlace) {
+        mVetPlace = vetPlace;
     }
 
     public String getPatientName() {
@@ -125,6 +134,7 @@ public class Referral {
        // instantiate from shared preferences
         mName = prefs.getString("mName","");
         mVetPractice = prefs.getString("mVetPractice","");
+        mVetPlace = prefs.getString("mVetPlace","");
         mPatientName = prefs.getString("mPatientName","");
         mPatientType = prefs.getString("mPatientType","");
         mPatienRace = prefs.getString("mPatienRace","");
@@ -146,6 +156,7 @@ public class Referral {
 
         editor.putString("mName", mName);
         editor.putString("mVetPractice", mVetPractice);
+        editor.putString("mVetPlace", mVetPlace);
         editor.putString("mPatientName", mPatientName);
         editor.putString("mPatientType", mPatientType);
         editor.putString("mPatienRace", mPatienRace);
@@ -244,6 +255,9 @@ public class Referral {
         }
         if (!mVetPractice.isEmpty()){
             lines.add(mVetPractice);
+        }
+        if (!mVetPlace.isEmpty()){
+            lines.add(mVetPlace);
         }
 
         String result = "";
