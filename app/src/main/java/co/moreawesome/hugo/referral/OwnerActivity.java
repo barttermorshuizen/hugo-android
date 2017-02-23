@@ -84,7 +84,7 @@ public class OwnerActivity extends AppCompatActivity  implements TextWatcher {
     private void colorLabelsWhenEmpty(){
         colorLabelWhenEmpty(lblOwnerName,mEditTextOwnerName);
         // when either email or tel is filled, both can be light gray. If both empty, both accent color
-        if (!mEditTextOwnerEmail.getText().toString().isEmpty() || !mEditTextOwnerEmail.getText().toString().isEmpty()) {
+        if (!mEditTextOwnerEmail.getText().toString().isEmpty() || !mEditTextOwnerTel.getText().toString().isEmpty()) {
             lblOwnerEmail.setTextColor(getResources().getColor(R.color.light_gray));
             lblOwnerTel.setTextColor(getResources().getColor(R.color.light_gray));
         }
