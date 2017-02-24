@@ -1,10 +1,12 @@
 package co.moreawesome.hugo.referral;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -60,14 +62,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             @Override
             public void onClick(View view) {
                 mail();
-            }
-        });
-
-        mClearButton = (Button) findViewById(R.id.clear_button);
-        mClearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clear();
             }
         });
 
@@ -154,13 +148,6 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -179,15 +166,37 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_clear) {
-            clear();
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch (which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            clear();
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            //No button clicked
+                            break;
+                    }
+                }
+            };
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Het gehele verwijsformulier wordt gewist. Weet je het zeker?").setPositiveButton("Ja", dialogClickListener)
+                    .setNegativeButton("Nee", dialogClickListener).show();
             return true;
         }
 
@@ -211,6 +220,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     final public void onTextChanged(CharSequence s, int start, int before, int count) { /* Don't care */ }
+
     private void clear(){
         referral.clear();
         referral.store(getSharedPreferences(PREFS_NAME, 0));
@@ -260,11 +270,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         mVet.setText(referral.getVetPractice());
         mReferralReason.setText(referral.getReason());
         if (referral.getPatientType().length()>0) {
-            mPatient.setText(referral.getPatientName() + " (" + referral.getPatientType() + ")");
+            mPatient.setText(referral.getPatientType());
         }
         else {
             mPatient.setText(referral.getPatientName());
         }
+
         mOwner.setText(referral.getOwnerName());
         mEmail.setChecked(referral.getContactByEmail());
         mTel.setChecked(!referral.getContactByEmail());

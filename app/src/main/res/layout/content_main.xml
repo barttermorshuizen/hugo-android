@@ -225,15 +225,6 @@
             android:layout_height="match_parent">
 
             <Button
-                android:text="@string/clear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/clear_button"
-                android:layout_weight="1"
-                style="@style/Widget.AppCompat.Button"
-                android:elevation="0dp" />
-
-            <Button
                 android:text="@string/send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

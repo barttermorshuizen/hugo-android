@@ -4,9 +4,9 @@
       tools:context="co.moreawesome.hugo.referral.MainActivity">
     <item
         android:id="@+id/action_clear"
-        android:orderInCategory="100"
+        android:icon="@drawable/ic_clear"
         android:title="@string/action_clear"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
 
     <item
             android:id="@+id/action_call"

@@ -1,10 +1,14 @@
 package co.moreawesome.hugo.referral;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -62,6 +66,36 @@ public class OwnerActivity extends AppCompatActivity  implements TextWatcher {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_clear) {
+            clear();
+            return true;
+        }
+
+        if (id == R.id.action_call) {
+            String number = getText(R.string.tel_number).toString();
+            Uri call = Uri.parse("tel:" + number);
+            Intent surf = new Intent(Intent.ACTION_DIAL, call);
+            startActivity(surf);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void afterTextChanged(Editable s) {
         colorLabelsWhenEmpty();
     }
@@ -92,6 +126,12 @@ public class OwnerActivity extends AppCompatActivity  implements TextWatcher {
             lblOwnerEmail.setTextColor(getResources().getColor(R.color.colorAccent));
             lblOwnerTel.setTextColor(getResources().getColor(R.color.colorAccent));
         }
+    }
+
+    private void clear(){
+        referral.clearOwner();
+        referral.store(getSharedPreferences(MainActivity.PREFS_NAME, 0));
+        modelToView();
     }
 
     private void modelToView() {

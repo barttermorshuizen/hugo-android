@@ -173,16 +173,24 @@ public class Referral {
     }
 
     public void clear(){
+        clearPatient();
+        clearOwner();
+        mReason="";
+        mContactByEmail=true;
+    }
+
+    public void clearOwner(){
+        mOwnerName="";
+        mOwnerTel="";
+        mOwnerEmail="";
+    }
+
+    public void clearPatient(){
         mPatientName="";
         mPatientType="";
         mPatienRace="";
         mPatientDoB="";
         mPatientGender="";
-        mOwnerName="";
-        mOwnerTel="";
-        mOwnerEmail="";
-        mReason="";
-        mContactByEmail=true;
     }
 
     String validateComplete(){
@@ -193,6 +201,10 @@ public class Referral {
         // patient data
         if (mPatientType.isEmpty()){
             return "Diersoort is niet ingevuld";
+        }
+        // Owner has a name
+        if (mOwnerName.isEmpty()){
+            return "De naam van de eigenaar is niet ingevuld";
         }
         //  owner has either mail or tel number
         if (mOwnerEmail.isEmpty() && mOwnerTel.isEmpty())
