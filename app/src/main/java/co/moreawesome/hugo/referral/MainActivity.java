@@ -247,7 +247,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
         // check owner
         //  owner has either mail or tel number
-        if (referral.getOwnerEmail().isEmpty() && referral.getOwnerTel().isEmpty()){
+        if ((referral.getOwnerEmail().isEmpty() && referral.getOwnerTel().isEmpty())
+                || referral.getOwnerName().isEmpty()){
             lblOwner.setTextColor(getResources().getColor(R.color.colorAccent));
         }
         else {

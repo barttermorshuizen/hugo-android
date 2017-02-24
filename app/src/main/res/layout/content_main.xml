@@ -46,7 +46,7 @@
 
                 <TextView
                     android:id="@+id/lbl_vet"
-                    android:text="Tap om te veranderen"
+                    android:text="Tap om de dierenarts te veranderen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -120,7 +120,7 @@
 
                 <TextView
                     android:id="@+id/lbl_patient"
-                    android:text="Tap om te veranderen"
+                    android:text="Tap om de patient te veranderen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -155,7 +155,7 @@
                           android:textStyle="normal|italic"/>
                 <TextView
                     android:id="@+id/lbl_owner"
-                    android:text="Tap om te veranderen"
+                    android:text="Tap om de eigenaar te veranderen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>

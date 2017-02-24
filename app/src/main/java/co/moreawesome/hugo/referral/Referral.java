@@ -193,25 +193,36 @@ public class Referral {
         mPatientGender="";
     }
 
+    public void clearVet(){
+        mName="";
+        mVetPractice="";
+        mVetPlace="";
+    }
+
     String validateComplete(){
         // vet data
         if (mVetPractice.isEmpty()){
-            return "De praktijk is niet ingevuld";
+            return "Dierenarts - praktijk is niet ingevuld";
         }
-        // patient data
-        if (mPatientType.isEmpty()){
-            return "Diersoort is niet ingevuld";
-        }
-        // Owner has a name
-        if (mOwnerName.isEmpty()){
-            return "De naam van de eigenaar is niet ingevuld";
-        }
-        //  owner has either mail or tel number
-        if (mOwnerEmail.isEmpty() && mOwnerTel.isEmpty())
-            return "Eigenaar heeft geen contactinformatie";
+
         // reason is empty
         if (mReason.isEmpty())
             return "Reden verwijzing is niet ingevuld";
+
+        // patient data
+        if (mPatientType.isEmpty()){
+            return "Patient - diersoort is niet ingevuld";
+        }
+
+        // Owner has a name
+        if (mOwnerName.isEmpty()){
+            return "Eigenaar - de naam van de eigenaar is niet ingevuld";
+        }
+
+        //  owner has either mail or tel number
+        if (mOwnerEmail.isEmpty() && mOwnerTel.isEmpty())
+            return "Eigenaar  - contactinformatie ontbreekt";
+
 
         // if we got here, all is cool
         return "Ok";
