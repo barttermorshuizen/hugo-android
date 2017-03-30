@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Hugo</string>
+    <string name="action_clear">Wis</string>
+    <string name="tap_to_change">Tap om te veranderen...</string>
+    <string name="clear">Wis</string>
+    <string name="send">Verzenden...</string>
+    <string name="tel_number">+31204081408</string>
+    <string name="gender">Geslacht</string>
+    <string name="gender_m">M</string>
+    <string name="gender_mg">MG</string>
+    <string name="gender_v">V</string>
+    <string name="gender_vg">VG</string>
+    <string name="gender_o">O</string>
+    <string name="vet">Dierenarts</string>
+    <string name="reason">Reden verwijzing</string>
+    <string name="patient">Patient</string>
+    <string name="owner">Eigenaar</string>
+    <string name="contactpreference">Contact de eigenaar via</string>
+    <string name="email">E-mail</string>
+    <string name="tel">Telefonisch</string>
+    <string name="name">Naam</string>
+    <string name="patienttype">Diersoort</string>
+    <string name="patientrace">Ras</string>
+    <string name="dob">Geboortedatum</string>
+    <string name="logo_hugo">logo hugo</string>
+    <string name="vet_practice">Vul de naam van de praktijk in</string>
+    <string name="place">Vul de plaats van de praktijk in</string>
+    <string name="smtp_user">postmaster@sandbox51f2b7ec903e468eb8fd59e7471c68ac.mailgun.org</string>
+    <string name="smtp_password">a8b5cb9f52959bd17738d117ab9eed61</string>
+    <string name="email_hugo">bart@moreawesome.co</string>
+    <string name="smtp_host">smtp.mailgun.org</string>
+    <string name="smtp_port">587</string>
+    <string name="msg_referralbeingsent">De verwijzing wordt verstuurd....</string>
+    <string name="msg_referralsenterror">De verwijzing is niet verstuurd naar Hugo wegens een technisch probleem.
+
+        \n\nNeem telefonisch contact op met Hugo om de verwijzing door te geven.
+
+        \n\nHugo</string>
+    <string name="msg_referralsentsuccess">De verwijzing is verstuurd.
+
+        \n\nHugo neemt snel contact op met de eigenaar voor een afspraak.
+        \nBedankt voor de verwijzing!
+
+        \n\nHugo</string>
+    <string name="msg_referralsenterrorconnection">De verwijzing is niet verstuurd. Er is geen internetconnectie.
+
+        \n\nZorg voor internetconnectie en probeer het nog eens! Of neem telefonisch contact op met Hugo om de verwijzing door te geven.
+
+        \n\nHugo</string>
+</resources>

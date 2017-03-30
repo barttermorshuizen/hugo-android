@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.moreawesome.hugo.referral.VetActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabvet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_done_white_24px"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            tools:context="co.moreawesome.hugo.referral.VetActivity"
+            tools:showIn="@layout/activity_vet">
+
+            <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <EditText android:id="@+id/vetpractice"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"
+                              android:hint="Praktijknaam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_vetpractice"
+                        android:text="@string/vet_practice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorAccent"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <EditText android:id="@+id/vetplace"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"
+                              android:hint="Plaats"/>
+
+                    <TextView
+                        android:id="@+id/lbl_vetplace"
+                        android:text="@string/place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/light_gray"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <EditText android:id="@+id/name"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:maxLines="1"
+                              android:inputType="textCapWords"
+                              android:hint="Naam"/>
+
+                    <TextView
+                        android:id="@+id/lbl_name"
+                        android:text="Vul je naam in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/light_gray"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.75">
+
+                    <EditText
+                        android:id="@+id/vetemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="E-mail"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:id="@+id/lbl_vetemail"
+                        android:text="Vul je email adres in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorAccent"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>
