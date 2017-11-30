@@ -4,7 +4,7 @@
     <string name="tap_to_change">Tap om te veranderen...</string>
     <string name="clear">Wis</string>
     <string name="send">Verzenden...</string>
-    <string name="tel_number">+31204081408</string>
+    <string name="tel_number">+31203080750</string>
     <string name="gender">Geslacht</string>
     <string name="gender_m">M</string>
     <string name="gender_mg">MG</string>
@@ -27,7 +27,7 @@
     <string name="place">Vul de plaats van de praktijk in</string>
     <string name="smtp_user">postmaster@sandbox51f2b7ec903e468eb8fd59e7471c68ac.mailgun.org</string>
     <string name="smtp_password">a8b5cb9f52959bd17738d117ab9eed61</string>
-    <string name="email_hugo">bart@moreawesome.co</string>
+    <string name="email_hugo">verwijs@hugo-verwijskliniek.nl</string>
     <string name="smtp_host">smtp.mailgun.org</string>
     <string name="smtp_port">587</string>
     <string name="msg_referralbeingsent">De verwijzing wordt verstuurd....</string>
